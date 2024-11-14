@@ -1,0 +1,37 @@
+<!--Captcha start-->
+<div class="form">
+  <label for="captcha">Please enter the text shown in the image:</label>
+  <img id="captcha-image" src="" alt="Captcha Image" />
+  <input type="text" class="input-text" name="captcha" id="captcha" placeholder="Your Answer" required="required" />
+  <input type="hidden" name="captcha-answer" id="captcha-answer" />
+  <p class="help-block text-danger"></p>
+</div>
+<!--Captcha end-->
+
+const captchaData = [
+    { image: 'captcha/1.png', answer: 'MKAB' },
+    { image: 'captcha/2.png', answer: 'XRSP' },
+    { image: 'captcha/3.png', answer: 'RYEW' },
+    { image: 'captcha/4.png', answer: 'DWVM' },
+    { image: 'captcha/5.png', answer: 'KL5P' },
+    { image: 'captcha/6.png', answer: 'S38J' },
+    { image: 'captcha/7.png', answer: 'C6F1' },
+    { image: 'captcha/8.png', answer: 'K8B2' },
+    { image: 'captcha/9.png', answer: '3R6U' },
+    { image: 'captcha/10.png', answer: 'A4T9' }
+];
+
+<script>
+// Function to randomize captcha
+function generateCaptcha() {
+    const randomIndex = Math.floor(Math.random() * captchaData.length);
+    const selectedCaptcha = captchaData[randomIndex];
+
+    // Set the image source and the answer in a hidden input
+    document.getElementById('captcha-image').src = selectedCaptcha.image;
+    document.getElementById('captcha-answer').value = selectedCaptcha.answer;
+}
+
+// Call the function to generate captcha on page load
+window.onload = generateCaptcha;
+</script>
